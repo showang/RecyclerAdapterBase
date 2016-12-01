@@ -1,5 +1,5 @@
 # RecyclerAdapterBase
-Lazy base adapter to help you develop recycler view faster.
+Lazy base adapter to help you developing recycler view faster.
 
 ## Support header and footer view
 <img src="https://cloud.githubusercontent.com/assets/780712/20781231/4c7575b2-b7bc-11e6-9d1f-d5abf294aad4.gif" width = "192" height = "341" alt="header_footer_view" align=center />
