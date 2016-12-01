@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+	<android.support.v7.widget.CardView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="2dp"
+		android:layout_marginLeft="8dp"
+		android:layout_marginRight="8dp"
+		android:layout_marginTop="4dp">
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="100dp"
+			android:layout_margin="8dp">
+
+			<TextView
+				android:id="@+id/repoItem_titleTextView"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textSize="20sp"/>
+
+			<ImageView
+				android:id="@+id/repoItem_avatarImageView"
+				android:layout_width="36dp"
+				android:layout_height="36dp"
+				android:layout_alignParentBottom="true"
+				android:layout_marginBottom="12dp"/>
+
+			<TextView
+				android:id="@+id/repoItem_ownerNameTextView"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignBottom="@id/repoItem_avatarImageView"
+				android:layout_alignTop="@id/repoItem_avatarImageView"
+				android:layout_toEndOf="@id/repoItem_avatarImageView"
+				android:layout_toRightOf="@id/repoItem_avatarImageView"
+				android:gravity="center_vertical"
+				android:paddingLeft="4dp"
+				android:paddingRight="4dp"
+				android:textSize="16sp"/>
+
+			<TextView
+				android:id="@+id/repoItem_startTextView"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignBottom="@id/repoItem_titleTextView"
+				android:layout_alignParentEnd="true"
+				android:layout_alignParentRight="true"
+				android:layout_alignTop="@id/repoItem_titleTextView"
+				android:drawableLeft="@drawable/ic_vector_start"
+				android:drawablePadding="4dp"
+				android:drawableStart="@drawable/ic_vector_start"
+				android:gravity="center_vertical"/>
+
+		</RelativeLayout>
+	</android.support.v7.widget.CardView>
+
+</RelativeLayout>

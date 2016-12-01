@@ -1,0 +1,8 @@
+<resources>
+	<string name="app_name">RecyclerAdapterBase</string>
+	<string name="action_settings">Settings</string>
+	<string name="headerItem_title">Header View</string>
+	<string name="footerItem_title">Footer View</string>
+	<string name="loadmore_network_unstable">Network unstable, try later plz.</string>
+	<string name="search_title">search repo</string>
+</resources>
