@@ -1,13 +1,14 @@
-package tw.showang.recycleradaterbase;
+package tw.showang.recycleradapterbase;
 
 import java.util.List;
 
-public class RecyclerAdapterHelper {
+@SuppressWarnings("WeakerAccess")
+class RecyclerAdapterHelper {
 
 	public final static int VIEW_TYPE_NORMAL = Integer.MAX_VALUE;
-	private final static int VIEW_TYPE_LOAD_MORE = Integer.MAX_VALUE - 2;
-	private final static int VIEW_TYPE_HEADER = Integer.MAX_VALUE - 4;
-	private final static int VIEW_TYPE_FOOTER = Integer.MAX_VALUE - 8;
+	private final static int VIEW_TYPE_LOAD_MORE = Integer.MAX_VALUE - 1;
+	private final static int VIEW_TYPE_HEADER = Integer.MAX_VALUE - 2;
+	private final static int VIEW_TYPE_FOOTER = Integer.MAX_VALUE - 3;
 
 	private boolean isLoadMoreEnable = false;
 	private boolean isLoadMoreFailed = false;
@@ -18,10 +19,10 @@ public class RecyclerAdapterHelper {
 
 	private List dataList;
 
-	public RecyclerAdapterHelper(List dataList, LoadMoreListener loadMoreListener, CustomizeSizeDelegate helperListener) {
+	public RecyclerAdapterHelper(List dataList, LoadMoreListener loadMoreListener, CustomizeSizeDelegate sizeDelegate) {
 		this.dataList = dataList;
 		this.loadMoreListener = loadMoreListener;
-		this.sizeDelegate = helperListener;
+		this.sizeDelegate = sizeDelegate;
 	}
 
 	public void setLoadMoreListener(LoadMoreListener loadMoreListener) {

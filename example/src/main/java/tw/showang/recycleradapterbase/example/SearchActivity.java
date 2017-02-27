@@ -20,7 +20,7 @@ import tw.showang.recycleradapterbase.example.api.GitHubSearchRepoApi.SearchResu
 import tw.showang.recycleradapterbase.example.api.GitHubUserRepoApi.GetRepoResult;
 import tw.showang.recycleradapterbase.example.api.base.ExampleApiBase.ApiErrorListener;
 import tw.showang.recycleradapterbase.example.api.base.ExampleApiBase.ApiSuccessListener;
-import tw.showang.recycleradaterbase.LoadMoreListener;
+import tw.showang.recycleradapterbase.LoadMoreListener;
 
 public class SearchActivity extends AppCompatActivity {
 

@@ -1,8 +1,9 @@
 apply plugin: 'com.android.library'
+apply plugin: 'jacoco'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion BUILD_TOOL_VERSION
 
     defaultConfig {
         minSdkVersion 15
@@ -11,14 +12,46 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            testCoverageEnabled = true
+        }
     }
+    testOptions {
+        unitTests.all {
+            // To generate coverage reports even if there are test failures.
+            setIgnoreFailures(true)
+
+            jacoco {
+                // Needed for JaCoCo version >= 0.7.6
+                includeNoLocationClasses true
+            }
+        }
+    }
+}
+
+task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
+    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
+    def mainSrc = "${project.projectDir}/src/main/java"
+
+    sourceDirectories = files([mainSrc])
+    classDirectories = files([debugTree])
+    executionData = fileTree(dir: "$buildDir", includes: [
+            "jacoco/testDebugUnitTest.exec",
+            "outputs/code-coverage/connected/*coverage.ec"
+    ])
 }
 
 dependencies {
@@ -26,9 +59,10 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    compile "com.android.support:recyclerview-v7:25.0.0"
+    compile "com.android.support:appcompat-v7:${ANDROID_SUPPORT_LIB_VER}"
+    compile "com.android.support:recyclerview-v7:${ANDROID_SUPPORT_LIB_VER}"
     testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:1.10.19'
 }
 
 apply from: "bintrayUpload.gradle"

@@ -1,4 +1,4 @@
-package tw.showang.recycleradaterbase;
+package tw.showang.recycleradapterbase;
 
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import tw.showang.recycleradaterbase.RecyclerAdapterHelper.CustomizeSizeDelegate;
+import tw.showang.recycleradaterbase.R;
 
-@SuppressWarnings("unused")
-public abstract class RecyclerAdapterBase extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements CustomizeSizeDelegate {
+@SuppressWarnings({"unused", "WeakerAccess"})
+public abstract class RecyclerAdapterBase extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements RecyclerAdapterHelper.CustomizeSizeDelegate {
 
 	private final static int DEFAULT_LOAD_MORE_LAYOUT = R.layout.recycler_item_load_more;
 
