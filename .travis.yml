@@ -18,6 +18,11 @@ android:
     - extra-android-m2repository
     - addon-google_apis-google-25
 
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -26,4 +31,4 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 
-./gradlew :recycleradapterbase:jacocoTestReport
+./gradlew jacocoTestReport
