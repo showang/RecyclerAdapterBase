@@ -32,5 +32,5 @@ cache:
     - $HOME/.gradle/wrapper/
 
 script:
-  - ./gradlew build jacocoTestReport
+  - ./gradlew :recycleradapterbase:jacocoTestReport
   - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
