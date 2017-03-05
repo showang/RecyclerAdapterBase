@@ -31,4 +31,6 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
 
-./gradlew jacocoTestReport
+script:
+  - ./gradlew build jacocoTestReport
+  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
