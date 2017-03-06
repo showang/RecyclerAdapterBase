@@ -1,3 +1,4 @@
+![build](https://api.travis-ci.org/showang/RecyclerAdapterBase.svg?branch=master)
 [![codecov](https://codecov.io/gh/showang/RecyclerAdapterBase/branch/master/graph/badge.svg)](https://codecov.io/gh/showang/RecyclerAdapterBase)
 # RecyclerAdapterBase
 Lazy base adapter to help you develop recycler view faster.
