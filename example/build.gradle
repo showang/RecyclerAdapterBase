@@ -21,8 +21,11 @@ android {
         versionName '1.0'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         Properties properties = new Properties()
-        properties.load(new File(rootDir.absolutePath + "/local.properties").newDataInputStream())
-        resValue 'string', 'github_token', properties.getProperty('github.token', null)
+        File localProperties = new File(rootDir.absolutePath + "/local.properties")
+        if(localProperties.exists()) {
+            properties.load(localProperties.newDataInputStream())
+            resValue 'string', 'github_token', properties.getProperty('github.token', null)
+        }
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {

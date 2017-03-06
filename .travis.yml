@@ -8,15 +8,9 @@ android:
   components:
     - tools
     - platform-tools
-    - build-tools-25.0.2
+    - build-tools-25.0.3
     - android-25
     - extra-android-m2repository
-    - sys-img-${ANDROID_ABI}-${ANDROID_TARGET}
-
-  licenses:
-    - 'android-sdk-preview-license-52d11cd2'
-    - 'android-sdk-license-.+'
-    - 'google-gdk-license-.+'
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -30,4 +24,4 @@ script:
   - ./gradlew :recycleradapterbase:jacocoTestReport
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - cat codecov.yml | curl --data-binary @- https://codecov.io/validate
