@@ -27,7 +27,7 @@ cache:
     - $HOME/.gradle/wrapper/
 
 script:
-  - ./gradlew :recycleradapterbase:jacocoTestReport
+  - ./gradlew jacocoTestReport
 
 after_success:
-  - cat codecov.yml | curl --data-binary @- https://codecov.io/validate
+  - bash <(curl -s https://codecov.io/bash)
