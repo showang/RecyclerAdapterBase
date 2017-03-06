@@ -1,4 +1,4 @@
-package tw.showang.recycleradaterbase;
+package tw.showang.recycleradapterbase;
 
 public interface LoadMoreListener {
 	void onLoadMore();

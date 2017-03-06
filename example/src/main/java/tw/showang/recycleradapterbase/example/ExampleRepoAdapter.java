@@ -15,7 +15,7 @@ import java.util.List;
 
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 import tw.showang.recycleradapterbase.example.api.GitHubUserRepoApi.GetRepoResult;
-import tw.showang.recycleradaterbase.RecyclerAdapterBase;
+import tw.showang.recycleradapterbase.RecyclerAdapterBase;
 
 public class ExampleRepoAdapter extends RecyclerAdapterBase {
 

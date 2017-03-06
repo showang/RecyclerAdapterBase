@@ -1,7 +1,7 @@
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
-version = "1.0.0"
+version = LIBRARY_VERSION
 
 def siteUrl = 'https://github.com/showang/RecyclerAdapterBase'
 def gitUrl = 'https://github.com/showang/RecyclerAdapterBase.git'
@@ -52,7 +52,10 @@ artifacts {
     archives sourcesJar
 }
 Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
+File localProperties = project.rootProject.file('local.properties');
+if (localProperties.exists()) {
+    properties.load(localProperties.newDataInputStream())
+}
 bintray {
     user = properties.getProperty("bintray.user")
     key = properties.getProperty("bintray.apikey")

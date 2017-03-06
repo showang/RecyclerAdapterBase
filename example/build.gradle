@@ -5,26 +5,32 @@ repositories {
         name 'glide-snapshot'
         url 'http://oss.sonatype.org/content/repositories/snapshots'
     }
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion BUILD_TOOL_VERSION
     defaultConfig {
         applicationId "tw.showang.recycleradapterbase.example"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0"
+        versionName '1.0'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         Properties properties = new Properties()
-        properties.load(new File(rootDir.absolutePath + "/local.properties").newDataInputStream())
-        resValue 'string', 'github_token', properties.getProperty('github.token', null)
+        File localProperties = new File(rootDir.absolutePath + "/local.properties")
+        if(localProperties.exists()) {
+            properties.load(localProperties.newDataInputStream())
+            resValue 'string', 'github_token', properties.getProperty('github.token', null)
+        }
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -36,12 +42,11 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'com.android.support:design:25.0.0'
-    compile 'com.android.support:cardview-v7:25.0.0'
+    compile "com.android.support:appcompat-v7:${ANDROID_SUPPORT_LIB_VER}"
+    compile "com.android.support:design:${ANDROID_SUPPORT_LIB_VER}"
+    compile "com.android.support:cardview-v7:${ANDROID_SUPPORT_LIB_VER}"
 
+//    compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'jp.wasabeef:glide-transformations:2.0.1'
     compile 'tw.showang.android:apiabstractionframework:1.0.1'
-
-    testCompile 'junit:junit:4.12'
 }

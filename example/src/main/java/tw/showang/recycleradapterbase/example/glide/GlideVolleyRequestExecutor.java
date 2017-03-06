@@ -16,7 +16,6 @@ public class GlideVolleyRequestExecutor extends VolleyRequestExecutor implements
 		super(context, logger);
 	}
 
-
 	@Override
 	public ModelLoaderFactory<GlideUrl, InputStream> createUrlLoaderFactory() {
 		return new VolleyUrlLoader.Factory(getRequestQueue());
