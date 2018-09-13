@@ -12,6 +12,9 @@ android:
     - android-25
     - extra-android-m2repository
 
+codecov:
+  token: 731a67a3-0fbc-4542-9f0d-0ea9fdb883f4
+
 licenses:
     - 'android-sdk-preview-license-52d11cd2'
     - 'android-sdk-license-.+'
